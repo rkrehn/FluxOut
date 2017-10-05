@@ -1,0 +1,8 @@
+{
+  "name": "FluxOut",
+  "app_id": "984d681c",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
