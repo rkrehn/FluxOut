@@ -1,0 +1,75 @@
+<ion-content>
+  <div class="bg-header">
+    <img class="background" src="/assets/header-top.png" alt="">
+    <ion-toolbar color="transparent">
+      <ion-buttons left (click)="goBack()">
+        <button ion-button icon-only color="light">
+              <ion-icon name="arrow-back"></ion-icon>
+            </button>
+      </ion-buttons>
+
+      <ion-buttons right (click)="openSettings()">
+        <button ion-button icon-only color="light">
+              <ion-icon name="settings"></ion-icon>
+            </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </div>
+
+  <p text-center class="clr"><b>{{ currentWorkout.description }}</b></p>
+  <div class="video">
+    <div class="overlay" *ngIf="videoStatus == 'completed'">
+      <img src="/assets/Checkmark.png" alt="">
+    </div>
+    <video width="100%" class="video-player" #videoGif *ngIf="workouts" [src]="currentWorkout.gif" autoplay loop></video>
+  </div>
+  <div class="share-wrap" text-right>
+    <img src="/assets/share icon.png" (click)="share()">
+  </div>
+  <div class="complete" text-center *ngIf="videoStatus == 'completed'">
+    <h2 text-center class="clor"><b>Congrats! Well Done!</b></h2>
+    <b ion-text color="dark">You have completed your daily exercises! <br> Lets move on to the next exercises</b>
+
+  </div>
+
+  <div class="learn" text-center *ngIf="videoStatus == 'learn'">
+    <h2 text-center class="clor"><b>Learn</b></h2>
+    <b ion-text color="dark">You have {{ secLeft }} seconds to get ready!</b>
+  </div>
+
+  <div class="workout" text-center *ngIf="videoStatus == 'workout'">
+    <h2 text-center class="clor"><b>Workout</b></h2>
+    <b ion-text color="dark">You have {{ secLeft }} seconds to workout!</b>
+  </div>
+
+
+  <ion-grid *ngIf="videoStatus != 'completed'">
+    <ion-row class="video-controls">
+      <ion-col text-right>
+        <img src="/assets/Previous icon.png" (click)="lastVideo()" alt="">
+      </ion-col>
+      <ion-col text-center>
+        <img src="/assets/Play btn.png" (click)="workout()" alt="" *ngIf="videoStatus != 'workout'">
+        <img src="/assets/Pause btn.png" (click)="learn()" alt="" *ngIf="videoStatus == 'workout'">
+      </ion-col>
+      <ion-col text-left>
+        <img src="/assets/Next icon.png" (click)="nextVideo()" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid *ngIf="videoStatus == 'completed'">
+    <ion-row class="video-controls">
+      <ion-col text-center>
+        <img src="/assets/Repeat.png" (click)="repeatSeries()" alt="">
+      </ion-col>
+      <ion-col text-center>
+        <img src="/assets/Next btn.png" (click)="nextSeries()" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

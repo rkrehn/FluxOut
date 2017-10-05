@@ -1,0 +1,20 @@
+<ion-content>
+  <div class="bg-header">
+    <img class="background" src="/assets/top bar.png">
+    <ion-toolbar color="transparent">
+      <ion-buttons left (click)="goBack()">
+        <button ion-button icon-only color="light">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>Settings</ion-title>
+    </ion-toolbar>
+  </div>
+
+  <div class="btns" text-center>
+    <br><br>
+    <img src="/assets/Rate our app.png" alt="">
+    <br>
+    <img src="/assets/Share app.png"  (click)="share()" alt="">
+  </div>
+</ion-content>

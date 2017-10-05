@@ -1,0 +1,23 @@
+page-home {
+    .background {
+        background-image: url('/assets/BG.jpg');
+        background-size: cover
+    }
+    .logo {
+        margin-top: 12%;
+    }
+    .nav-buttons{
+        height: 100px;
+        width: 100%;
+        position: absolute;
+        bottom:0%;
+
+    }
+    @media (max-width:350px) {
+        .nav-buttons{
+            img {
+                width:45%;
+            }
+        }
+        }
+}
